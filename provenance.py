@@ -385,17 +385,37 @@ def wiki_infobox(title: str) -> dict:
     result = {}
 
     # Credits from infobox
-    composer = parse_wiki_field(wikitext, "composer|music")
+    composer = parse_wiki_field(wikitext, "composer|music|sound")
     if composer:
         result["composer"] = composer
 
-    director = parse_wiki_field(wikitext, "director|lead designer|game director")
+    director = parse_wiki_field(wikitext, "director|lead designer|game director|creative director")
     if director:
         result["director"] = director
 
-    designer = parse_wiki_field(wikitext, "designer|lead designer")
+    designer = parse_wiki_field(wikitext, "designer|lead designer|game designer")
     if designer:
         result["designer"] = designer
+
+    # Narrative fallback — catches "directed by X" / "composed by X" in article body
+    # Handles games like ICO where infobox uses non-standard field names
+    if not result.get("director"):
+        m_dir = re.search(
+            r"(?:directed|designed and directed|game director)\s+by\s+([\w\s\u00c0-\u024f]+?)(?:\.|,\s+who|,\s+and|\s+and\s+pub)",
+            wikitext, re.IGNORECASE
+        )
+        if m_dir:
+            result["director"] = m_dir.group(1).strip()
+            result["director_source"] = "wikipedia_narrative"
+
+    if not result.get("composer"):
+        m_comp = re.search(
+            r"(?:music|score|soundtrack)\s+(?:was\s+)?composed\s+by\s+([\w\s\u00c0-\u024f]+?)(?:\.|,)",
+            wikitext, re.IGNORECASE
+        )
+        if m_comp:
+            result["composer"] = m_comp.group(1).strip()
+            result["composer_source"] = "wikipedia_narrative"
 
     # Method 1: infobox field | units sold = X
     m = re.search(r"\|\s*units?\s*sold\s*=\s*([^\n\|]+)", wikitext, re.IGNORECASE)
@@ -748,6 +768,85 @@ def hltb_times(title: str) -> dict:
 
     return data
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# WIKIDATA — DIRECTOR, COMPOSER, DESIGNER (P57, P86, P287)
+# ─────────────────────────────────────────────────────────────────────────────
+
+WIKIDATA_API = "https://www.wikidata.org/w/api.php"
+
+# Properties we care about
+WIKIDATA_PROPS = {
+    "P57":  "director",
+    "P86":  "composer",
+    "P287": "designer",
+    "P162": "producer",
+}
+
+
+def wikidata_resolve_label(entity_id: str) -> str | None:
+    """Resolve a Wikidata entity QID to its English label (person name)."""
+    r = safe_get(
+        WIKIDATA_API,
+        params={
+            "action": "wbgetentities",
+            "ids": entity_id,
+            "props": "labels",
+            "languages": "en",
+            "format": "json",
+        }
+    )
+    if not (r and r.status_code == 200):
+        return None
+    entities = r.json().get("entities", {})
+    entity = entities.get(entity_id, {})
+    return entity.get("labels", {}).get("en", {}).get("value")
+
+
+def wikidata_credits(wiki_title: str) -> dict:
+    """
+    Fetch director, composer, designer from Wikidata using the Wikipedia page title.
+    Returns dict with keys: director, composer, designer, producer (all str or None).
+    """
+    # Step 1: get Wikidata entity for this Wikipedia article
+    r = safe_get(
+        WIKIDATA_API,
+        params={
+            "action": "wbgetentities",
+            "sites": "enwiki",
+            "titles": wiki_title,
+            "props": "claims",
+            "format": "json",
+        }
+    )
+    if not (r and r.status_code == 200):
+        return {}
+
+    entities = r.json().get("entities", {})
+    # Skip if not found (entity id starts with "-")
+    entity = next(iter(entities.values()), {})
+    if str(entity.get("id", "-1")).startswith("-"):
+        return {}
+
+    claims = entity.get("claims", {})
+    result = {}
+
+    for prop, role in WIKIDATA_PROPS.items():
+        if prop not in claims:
+            continue
+        names = []
+        for claim in claims[prop]:
+            val = claim.get("mainsnak", {}).get("datavalue", {}).get("value", {})
+            if isinstance(val, dict) and "id" in val:
+                name = wikidata_resolve_label(val["id"])
+                if name:
+                    names.append(name)
+                    time.sleep(0.1)  # be polite to Wikidata
+        if names:
+            result[role] = ", ".join(names)
+
+    return result
+
 # ─────────────────────────────────────────────────────────────────────────────
 # LAYER ASSEMBLERS — the 10 layers
 # ─────────────────────────────────────────────────────────────────────────────
@@ -850,6 +949,11 @@ def build_layer_human(credits: dict, wiki_ib: dict = None) -> dict:
             director = wiki_ib["director"]
             if "Wikipedia infobox" not in sources:
                 sources.append("Wikipedia infobox")
+        # designer field often contains director for auteur-led games (e.g. ICO/Ueda)
+        if not director and wiki_ib.get("designer"):
+            director = wiki_ib["designer"]
+            if "Wikipedia infobox (designer field)" not in sources:
+                sources.append("Wikipedia infobox (designer field)")
 
     return {
         "layer": "III · HUMAN",
@@ -1038,6 +1142,25 @@ def run_provenance(title: str, platform: str, region: str, config: dict) -> dict
     else:
         print("    [warn] Wikipedia: no page found")
 
+    # ── Wikidata — director/composer fallback when infobox is Wikidata-sourced
+    if not wiki_ib.get("director") or not wiki_ib.get("composer"):
+        wiki_title = wiki_data.get("title") if wiki_data else title
+        print(f"[III] Fetching credits from Wikidata (P57/P86)...")
+        wd = wikidata_credits(wiki_title)
+        if wd:
+            if not wiki_ib.get("director") and wd.get("director"):
+                wiki_ib["director"] = wd["director"]
+                wiki_ib["director_source"] = "wikidata"
+                print(f"    ✓ Director: {wd['director']}")
+            if not wiki_ib.get("composer") and wd.get("composer"):
+                wiki_ib["composer"] = wd["composer"]
+                wiki_ib["composer_source"] = "wikidata"
+                print(f"    ✓ Composer: {wd['composer']}")
+            if not wiki_ib.get("designer") and wd.get("designer"):
+                wiki_ib["designer"] = wd["designer"]
+        if not wd or (not wd.get("director") and not wd.get("composer")):
+            print("    [warn] Wikidata: no credits found")
+
     # ── YouTube
     announcement_date = None
     if config.get("youtube_api_key"):
@@ -1118,7 +1241,7 @@ def run_provenance(title: str, platform: str, region: str, config: dict) -> dict
     layers.append(build_layer_verdict(title, platform, region, layers))
 
     result = {
-        "provenance_version": "0.3.0",
+        "provenance_version": "0.3.1",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "query": {"title": title, "platform": platform, "region": region},
         "layers": layers,

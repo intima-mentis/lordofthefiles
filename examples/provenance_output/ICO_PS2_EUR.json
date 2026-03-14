@@ -1,0 +1,162 @@
+{
+  "provenance_version": "0.3.0",
+  "generated_at": "2026-03-14T16:33:48.183974+00:00",
+  "query": {
+    "title": "ICO",
+    "platform": "PS2",
+    "region": "EUR"
+  },
+  "layers": [
+    {
+      "layer": "I · IDENTITY",
+      "title": "ICO",
+      "platform": "PS2",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "release_date": "2001-09-25",
+      "igdb_id": 7170,
+      "igdb_url": "https://www.igdb.com/games/ico",
+      "moby_id": 5158,
+      "moby_url": "https://www.mobygames.com/game/5158/ico/",
+      "moby_description_excerpt": "<p>Ico is a boy with horns. At the age of twelve, when his horns grew large enough, the elders send him away to be sacrificed in order to prevent evil spirits from attacking the village. Entombed in a crumbling ancient castle, Ico only manages to begin his escape when a freak earthquake shakes loose",
+      "metacritic_score": 90,
+      "rawg_rating": 4.35,
+      "rawg_ratings_count": 400,
+      "tags": [
+        "Atmospheric",
+        "Action-Adventure"
+      ],
+      "genres": [
+        "Action",
+        "Platformer"
+      ],
+      "rawg_id": 4490,
+      "rawg_url": "https://rawg.io/games/ico",
+      "hltb_main_story_hours": 47.25,
+      "hltb_main_extra_hours": 51.15,
+      "hltb_completionist_hours": 62.81,
+      "hltb_url": "https://howlongtobeat.com/game/108347"
+    },
+    {
+      "layer": "II · ORIGIN",
+      "developers": [
+        "Team Ico"
+      ],
+      "publishers": [
+        "Sony Computer Entertainment"
+      ],
+      "wiki_summary": "Ico is a 2001 action-adventure video game developed and published by Sony Computer Entertainment for the PlayStation 2. It was designed and directed by Fumito Ueda, who wanted to create a minimalist game based on a \"boy meets girl\" concept. Originally planned for the PlayStation, Ico took approximately four years to develop. The team employed a \"subtracting design\" approach to reduce gameplay elements that interfered with the game's setting and story in order to create immersion.",
+      "wiki_url": "https://en.wikipedia.org/wiki/Ico"
+    },
+    {
+      "layer": "III · HUMAN",
+      "director": "Fumito Ueda",
+      "composer": "Michiru Oshima, Koichi Yamazaki",
+      "designer": "Fumito Ueda, Kenji Kaido",
+      "credits_found": 0,
+      "sources": [
+        "Wikipedia infobox"
+      ],
+      "note": "Sources: Wikipedia infobox"
+    },
+    {
+      "layer": "IV · MUSIC",
+      "composer": "Michiru Oshima, Koichi Yamazaki",
+      "ost_status": "check_manually",
+      "khinsider_search": "https://downloads.khinsider.com/search?search=ICO",
+      "vgmdb_search": "https://vgmdb.net/search?q=ICO",
+      "note": "VGMdb and khinsider require scraping — not yet automated. Search links generated."
+    },
+    {
+      "layer": "V · SCREENSHOTS",
+      "count": 33,
+      "urls": [
+        "https://cdn.mobygames.com/screenshots/10246795-ico-playstation-2-opening.jpg",
+        "https://cdn.mobygames.com/screenshots/1305241-ico-playstation-2-title-screen.jpg",
+        "https://cdn.mobygames.com/screenshots/10120492-ico-playstation-2-icos-adventure-starts-here.jpg",
+        "https://cdn.mobygames.com/screenshots/189556-ico-playstation-2-from-here-you-can-see-most-of-the-castle.jpg",
+        "https://cdn.mobygames.com/screenshots/664546-ico-playstation-2-trolley-ride.jpg",
+        "https://cdn.mobygames.com/screenshots/10253319-ico-playstation-2-the-graveyard.jpg",
+        "https://cdn.mobygames.com/screenshots/10253322-ico-playstation-2-near-the-windmill.jpg",
+        "https://cdn.mobygames.com/screenshots/10253325-ico-playstation-2-waterfall.jpg",
+        "https://cdn.mobygames.com/screenshots/10253328-ico-playstation-2-couches-act-as-save-points.jpg",
+        "https://cdn.mobygames.com/screenshots/10253331-ico-playstation-2-an-ancient-reflector.jpg",
+        "https://cdn.mobygames.com/screenshots/16360802-ico-playstation-2-dramatic-encounter-with-the-queen.png",
+        "https://cdn.mobygames.com/screenshots/16360581-ico-playstation-2-pulling-and-pushing.png",
+        "https://cdn.mobygames.com/screenshots/16360584-ico-playstation-2-hey-yorda-that-bomb-is-about-to-blow.png",
+        "https://cdn.mobygames.com/screenshots/16360587-ico-playstation-2-protecting-yorda-from-the-shadows.png",
+        "https://cdn.mobygames.com/screenshots/16360590-ico-playstation-2-pulling-yorda-out-of-the-shadow-hole.png",
+        "https://cdn.mobygames.com/screenshots/16360656-ico-playstation-2-swinging-on-a-chain.png",
+        "https://cdn.mobygames.com/screenshots/16360659-ico-playstation-2-giving-yorda-a-helping-hand.png",
+        "https://cdn.mobygames.com/screenshots/16360662-ico-playstation-2-yorda-has-the-power-to-open-certain-passages.png",
+        "https://cdn.mobygames.com/screenshots/16360518-ico-playstation-2-bathing.png",
+        "https://cdn.mobygames.com/screenshots/16360593-ico-playstation-2-a-bit-of-dramatic-climbing.png",
+        "https://cdn.mobygames.com/screenshots/16360596-ico-playstation-2-gotta-protect-her-a-bit-more.png",
+        "https://cdn.mobygames.com/screenshots/16360692-ico-playstation-2-a-long-bridge.png",
+        "https://cdn.mobygames.com/screenshots/16360677-ico-playstation-2-yorda-can-make-certain-blocks-appear-out-of-th.png",
+        "https://cdn.mobygames.com/screenshots/16360689-ico-playstation-2-the-reflector-is-working.png",
+        "https://cdn.mobygames.com/screenshots/16360686-ico-playstation-2-a-multi-level-area.png",
+        "https://cdn.mobygames.com/screenshots/16360665-ico-playstation-2-it-seems-to-be-an-underground-cave-or-a-huge-b.png",
+        "https://cdn.mobygames.com/screenshots/16360683-ico-playstation-2-theres-no-other-way-to-that-side-of-the-gap.png",
+        "https://cdn.mobygames.com/screenshots/16360695-ico-playstation-2-the-boy-and-the-girl-speak-different-tongues.png",
+        "https://cdn.mobygames.com/screenshots/16360680-ico-playstation-2-a-dangerous-route.png",
+        "https://cdn.mobygames.com/screenshots/16360668-ico-playstation-2-weather-effects.png",
+        "https://cdn.mobygames.com/screenshots/16360671-ico-playstation-2-on-a-desert-shore.png",
+        "https://cdn.mobygames.com/screenshots/16360674-ico-playstation-2-once-you-beat-the-game-some-new-options-are-un.png",
+        "https://cdn.mobygames.com/screenshots/16360653-ico-playstation-2-behold-a-secret-light-saber.png"
+      ],
+      "source": "MobyGames API"
+    },
+    {
+      "layer": "VI · CONTEXT",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "has_wikipedia_regional_section": false,
+      "note": "Regional censorship data not in structured DB — check Wikipedia + GameFAQs manually for cuts."
+    },
+    {
+      "layer": "VII · MARKET",
+      "units_sold": "NOT IN PUBLIC RECORD",
+      "ebay_active_listings": null,
+      "ebay_price_range": null,
+      "ebay_query": null,
+      "ebay_retrieved_at": null,
+      "note": null
+    },
+    {
+      "layer": "VIII · DISCOVERY",
+      "similar_games_igdb": [
+        "Toby: The Secret Mine",
+        "Forgotton Anne",
+        "Planet Alpha",
+        "Code Vein",
+        "Semblance",
+        "Pikuniku",
+        "Blacksad: Under the Skin",
+        "Dream Alone"
+      ],
+      "note": "Source: IGDB similar_games field. Reflects algorithmic similarity, not editorial curation."
+    },
+    {
+      "layer": "IX · SURVIVAL",
+      "emulation_check": "Check PCSX2 compat list for PS2, RPCS3 for PS3.",
+      "gog_search": "https://www.gog.com/games?query=ICO",
+      "steam_search": "https://store.steampowered.com/search/?term=ICO",
+      "note": "No verified store links found via RAWG. Search links generated for manual check.",
+      "protondb_search": "https://www.protondb.com/search?q=ICO"
+    },
+    {
+      "layer": "X · FORENSIC VERDICT",
+      "object": "ICO — PS2 — EUR",
+      "generated_at": "2026-03-14T16:33:48.183959+00:00",
+      "completeness_notes": [
+        "Layer III: Check MobyGames credits section manually if composer shows UNATTRIBUTED",
+        "Layer IV: Verify OST status via khinsider + VGMdb links",
+        "Layer VI: Check regional differences on Wikipedia + GameFAQs manually",
+        "Layer VII: eBay data is live if API key configured, otherwise check manually",
+        "Layer IX: Digital availability requires manual GOG/Steam check"
+      ],
+      "verdict": "PENDING — review layers and add keep/sell/document decision manually"
+    }
+  ]
+}
