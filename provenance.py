@@ -16,6 +16,11 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
+try:
+    from howlongtobeatpy import HowLongToBeat as _HowLongToBeat
+    _HLTB_AVAILABLE = True
+except ImportError:
+    _HLTB_AVAILABLE = False
 
 # ─────────────────────────────────────────────────────────────────────────────
 # CONFIG & KEYS
@@ -681,13 +686,65 @@ def rawg_extract(rawg_game: dict, platform_id: int) -> dict:
 
     return result
 
+
+# ─────────────────────────────────────────────────────────────────────────────
+# HLTB — HOW LONG TO BEAT
+# ─────────────────────────────────────────────────────────────────────────────
+
+def hltb_times(title: str) -> dict:
+    """
+    Fetch completion times from HowLongToBeat.
+    Returns dict with main_story, main_extra, completionist (all in hours, float or None).
+    Returns empty dict if library not installed or no match found.
+    """
+    if not _HLTB_AVAILABLE:
+        return {"note": "howlongtobeatpy not installed — run setup.sh"}
+
+    try:
+        results = _HowLongToBeat().search(title)
+    except Exception as e:
+        print(f"  [hltb] search failed: {e}")
+        return {}
+
+    if not results:
+        return {}
+
+    # Best match by similarity score
+    best = max(results, key=lambda x: x.similarity)
+
+    # Reject weak matches (similarity < 0.6 means wrong game)
+    if best.similarity < 0.6:
+        print(f"  [hltb] best match '{best.game_name}' similarity {best.similarity:.2f} — too low, skipping")
+        return {}
+
+    data = {
+        "hltb_id": best.game_id,
+        "hltb_url": best.game_web_link,
+        "hltb_match": best.game_name,
+        "hltb_similarity": round(best.similarity, 2),
+    }
+
+    if best.main_story is not None:
+        data["main_story_hours"] = best.main_story
+    if best.main_extra is not None:
+        data["main_extra_hours"] = best.main_extra
+    if best.completionist is not None:
+        data["completionist_hours"] = best.completionist
+    if best.review_score is not None:
+        data["hltb_review_score"] = best.review_score
+    if best.profile_dev:
+        data["hltb_dev"] = best.profile_dev
+
+    return data
+
 # ─────────────────────────────────────────────────────────────────────────────
 # LAYER ASSEMBLERS — the 10 layers
 # ─────────────────────────────────────────────────────────────────────────────
 
 def build_layer_identity(title: str, platform: str, region: str,
                           igdb_game: dict | None, moby_game: dict | None,
-                          rawg_data: dict | None = None) -> dict:
+                          rawg_data: dict | None = None,
+                          hltb_data: dict | None = None) -> dict:
     """Layer I — Identity"""
     layer = {
         "layer": "I · IDENTITY",
@@ -731,6 +788,16 @@ def build_layer_identity(title: str, platform: str, region: str,
         if rawg_data.get("rawg_id"):
             layer["rawg_id"] = rawg_data["rawg_id"]
             layer["rawg_url"] = rawg_data["rawg_url"]
+
+    if hltb_data and not hltb_data.get("note"):
+        if hltb_data.get("main_story_hours"):
+            layer["hltb_main_story_hours"] = hltb_data["main_story_hours"]
+        if hltb_data.get("main_extra_hours"):
+            layer["hltb_main_extra_hours"] = hltb_data["main_extra_hours"]
+        if hltb_data.get("completionist_hours"):
+            layer["hltb_completionist_hours"] = hltb_data["completionist_hours"]
+        if hltb_data.get("hltb_url"):
+            layer["hltb_url"] = hltb_data["hltb_url"]
 
     return layer
 
@@ -1008,10 +1075,25 @@ def run_provenance(title: str, platform: str, region: str, config: dict) -> dict
     else:
         print("[I/IX] RAWG API key not configured — skipping")
 
+    # ── HLTB
+    hltb_data = {}
+    if _HLTB_AVAILABLE:
+        print("[I] Fetching completion times from HowLongToBeat...")
+        hltb_data = hltb_times(title)
+        if hltb_data and not hltb_data.get("note"):
+            main = hltb_data.get("main_story_hours", "n/a")
+            extra = hltb_data.get("main_extra_hours", "n/a")
+            comp = hltb_data.get("completionist_hours", "n/a")
+            print(f"    ✓ Main: {main}h | Main+Extra: {extra}h | Completionist: {comp}h")
+        else:
+            print("    [warn] HLTB: no match found")
+    else:
+        print("[I] howlongtobeatpy not installed — skipping HLTB")
+
     # ── Assemble layers
     print("\n[provenance] Assembling layers...")
     layers = []
-    layers.append(build_layer_identity(title, platform, region, igdb_game, moby_game, rawg_data=rawg_data))
+    layers.append(build_layer_identity(title, platform, region, igdb_game, moby_game, rawg_data=rawg_data, hltb_data=hltb_data))
     layers.append(build_layer_origin(igdb_comps, igdb_game, wiki_data))
     if announcement_date:
         layers[-1]["announcement_date_proxy"] = announcement_date
@@ -1025,7 +1107,7 @@ def run_provenance(title: str, platform: str, region: str, config: dict) -> dict
     layers.append(build_layer_verdict(title, platform, region, layers))
 
     result = {
-        "provenance_version": "0.2.0",
+        "provenance_version": "0.3.0",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "query": {"title": title, "platform": platform, "region": region},
         "layers": layers,

@@ -140,6 +140,7 @@ PACKAGES=(
     "piexif"
     "requests"
     "tqdm"
+    "howlongtobeatpy"
 )
 
 for pkg in "${PACKAGES[@]}"; do
