@@ -29,6 +29,7 @@ CONFIG_TEMPLATE = {
     "mobygames_api_key": "",    # https://www.mobygames.com/info/api/
     "youtube_api_key": "",      # Google Cloud Console — YouTube Data API v3
     "ebay_app_id": "",          # https://developer.ebay.com/ — Browse API (free tier)
+    "rawg_api_key": "",         # https://rawg.io/apidocs
 }
 
 
@@ -46,14 +47,14 @@ def load_config(path: Path) -> dict:
 # ─────────────────────────────────────────────────────────────────────────────
 
 PLATFORM_MAP = {
-    "PC":       {"igdb_slug": "pc",        "moby_id": 3,   "ebay_term": "PC"},
-    "PS2":      {"igdb_slug": "ps2",       "moby_id": 7,   "ebay_term": "PS2 PAL"},
-    "PS3":      {"igdb_slug": "ps3",       "moby_id": 81,  "ebay_term": "PS3"},
-    "Xbox":     {"igdb_slug": "xbox",      "moby_id": 13,  "ebay_term": "Xbox original"},
-    "Xbox 360": {"igdb_slug": "xbox360",   "moby_id": 69,  "ebay_term": "Xbox 360"},
-    "Wii":      {"igdb_slug": "wii",       "moby_id": 82,  "ebay_term": "Wii"},
-    "Dreamcast":{"igdb_slug": "dc",        "moby_id": 8,   "ebay_term": "Dreamcast"},
-    "PS1":      {"igdb_slug": "ps1",       "moby_id": 6,   "ebay_term": "PS1 PAL"},
+    "PC":       {"igdb_slug": "pc",        "moby_id": 3,   "ebay_term": "PC",           "rawg_id": 4},
+    "PS2":      {"igdb_slug": "ps2",       "moby_id": 7,   "ebay_term": "PS2 PAL",      "rawg_id": 15},
+    "PS3":      {"igdb_slug": "ps3",       "moby_id": 81,  "ebay_term": "PS3",          "rawg_id": 16},
+    "Xbox":     {"igdb_slug": "xbox",      "moby_id": 13,  "ebay_term": "Xbox original","rawg_id": 14},
+    "Xbox 360": {"igdb_slug": "xbox360",   "moby_id": 69,  "ebay_term": "Xbox 360",     "rawg_id": 1},
+    "Wii":      {"igdb_slug": "wii",       "moby_id": 82,  "ebay_term": "Wii",          "rawg_id": 11},
+    "Dreamcast":{"igdb_slug": "dc",        "moby_id": 8,   "ebay_term": "Dreamcast",    "rawg_id": 106},
+    "PS1":      {"igdb_slug": "ps1",       "moby_id": 6,   "ebay_term": "PS1 PAL",      "rawg_id": 27},
 }
 
 REGION_MAP = {
@@ -291,17 +292,31 @@ WIKI_ACTION = "https://en.wikipedia.org/w/api.php"
 
 def wiki_summary(title: str) -> dict | None:
     candidates = [
-        title,
         f"{title} (video game)",
         f"{title} (game)",
+        title,
     ]
+    best_non_game = None
     for candidate in candidates:
         r = safe_get(f"{WIKI_API}/page/summary/{requests.utils.quote(candidate)}")
-        if r and r.status_code == 200:
-            data = r.json()
-            if "disambiguation" not in data.get("description", "").lower():
-                return data
-    return None
+        if not (r and r.status_code == 200):
+            continue
+        data = r.json()
+        description = data.get("description", "").lower()
+        extract = data.get("extract", "").lower()
+        if "disambiguation" in description:
+            continue
+        # Prefer pages that are clearly about a video game
+        is_game_page = any(kw in description or kw in extract[:200]
+                           for kw in ("video game", "action game", "role-playing",
+                                      "adventure game", "platform game", "developed by",
+                                      "published by", "video gaming"))
+        if is_game_page:
+            return data
+        # Keep as fallback if nothing better found
+        if best_non_game is None:
+            best_non_game = data
+    return best_non_game
 
 
 def wiki_infobox(title: str) -> dict:
@@ -530,12 +545,149 @@ def ebay_scarcity(title: str, platform: str, region: str, app_id: str) -> dict:
     }
 
 
+
+# ─────────────────────────────────────────────────────────────────────────────────
+# RAWG — METACRITIC, TAGS, RATINGS, STORES
+# ─────────────────────────────────────────────────────────────────────────────────
+
+RAWG_BASE = "https://api.rawg.io/api"
+
+RAWG_STORE_NAMES = {
+    1: "Steam",
+    2: "Xbox Store",
+    3: "PlayStation Store",
+    4: "App Store",
+    5: "GOG",
+    6: "Nintendo Store",
+    7: "Xbox 360 Store",
+    8: "Google Play",
+    9: "itch.io",
+    11: "Epic Games",
+}
+
+
+def rawg_find_game(title: str, platform_id: int, api_key: str) -> dict | None:
+    """Search RAWG for a game, filtered by platform. Returns game detail dict or None."""
+    # Search endpoint
+    r = safe_get(
+        f"{RAWG_BASE}/games",
+        params={
+            "search": title,
+            "platforms": platform_id,
+            "search_exact": "false",
+            "page_size": 5,
+            "key": api_key,
+        }
+    )
+    if not (r and r.status_code == 200):
+        return None
+
+    results = r.json().get("results", [])
+    if not results:
+        # Fallback: search without platform filter
+        r2 = safe_get(
+            f"{RAWG_BASE}/games",
+            params={"search": title, "page_size": 5, "key": api_key}
+        )
+        if r2 and r2.status_code == 200:
+            results = r2.json().get("results", [])
+
+    if not results:
+        return None
+
+    # Prefer closest title match
+    title_lower = title.lower()
+    for game in results:
+        if game.get("name", "").lower() == title_lower:
+            game_id = game["id"]
+            break
+    else:
+        game_id = results[0]["id"]
+
+    # Fetch full detail record (includes stores, tags, metacritic per platform)
+    r_detail = safe_get(
+        f"{RAWG_BASE}/games/{game_id}",
+        params={"key": api_key}
+    )
+    if r_detail and r_detail.status_code == 200:
+        return r_detail.json()
+
+    return results[0]
+
+
+def rawg_extract(rawg_game: dict, platform_id: int) -> dict:
+    """
+    Extract provenance-relevant fields from RAWG game detail.
+    Returns a flat dict consumed by build_layer_identity and build_layer_survival.
+    """
+    if not rawg_game:
+        return {}
+
+    result = {}
+
+    # Metacritic — overall + per-platform if available
+    metacritic = rawg_game.get("metacritic")
+    if metacritic:
+        result["metacritic_score"] = metacritic
+        result["metacritic_url"] = rawg_game.get("metacritic_url")
+
+    # Per-platform Metacritic score
+    for plat in rawg_game.get("metacritic_platforms", []):
+        if plat.get("platform", {}).get("platform", {}).get("id") == platform_id:
+            result["metacritic_score_platform"] = plat.get("metascore")
+            result["metacritic_url_platform"] = plat.get("url")
+            break
+
+    # RAWG community rating
+    rating = rawg_game.get("rating")
+    ratings_count = rawg_game.get("ratings_count")
+    if rating:
+        result["rawg_rating"] = round(rating, 2)
+        result["rawg_ratings_count"] = ratings_count
+
+    # Average playtime (hours)
+    playtime = rawg_game.get("playtime")
+    if playtime:
+        result["playtime_hours"] = playtime
+
+    # Tags — top 8 by relevance
+    tags = rawg_game.get("tags", [])
+    if tags:
+        result["tags"] = [t["name"] for t in tags[:8]]
+
+    # Genres
+    genres = rawg_game.get("genres", [])
+    if genres:
+        result["genres_rawg"] = [g["name"] for g in genres]
+
+    # Official website
+    website = rawg_game.get("website")
+    if website:
+        result["official_website"] = website
+
+    # Stores — real verified links for Layer IX
+    stores = []
+    for s in rawg_game.get("stores", []):
+        store_id = s.get("store", {}).get("id")
+        store_url = s.get("url")
+        store_name = RAWG_STORE_NAMES.get(store_id, s.get("store", {}).get("name", ""))
+        if store_name and store_url:
+            stores.append({"store": store_name, "url": store_url})
+    if stores:
+        result["stores"] = stores
+
+    result["rawg_id"] = rawg_game.get("id")
+    result["rawg_url"] = f"https://rawg.io/games/{rawg_game.get('slug', '')}"
+
+    return result
+
 # ─────────────────────────────────────────────────────────────────────────────
 # LAYER ASSEMBLERS — the 10 layers
 # ─────────────────────────────────────────────────────────────────────────────
 
 def build_layer_identity(title: str, platform: str, region: str,
-                          igdb_game: dict | None, moby_game: dict | None) -> dict:
+                          igdb_game: dict | None, moby_game: dict | None,
+                          rawg_data: dict | None = None) -> dict:
     """Layer I — Identity"""
     layer = {
         "layer": "I · IDENTITY",
@@ -559,6 +711,26 @@ def build_layer_identity(title: str, platform: str, region: str,
         desc = moby_game.get("description", "")
         if desc:
             layer["moby_description_excerpt"] = desc[:300]
+
+    if rawg_data:
+        if rawg_data.get("metacritic_score"):
+            layer["metacritic_score"] = rawg_data["metacritic_score"]
+            if rawg_data.get("metacritic_score_platform"):
+                layer["metacritic_score_platform"] = rawg_data["metacritic_score_platform"]
+            if rawg_data.get("metacritic_url"):
+                layer["metacritic_url"] = rawg_data["metacritic_url"]
+        if rawg_data.get("rawg_rating"):
+            layer["rawg_rating"] = rawg_data["rawg_rating"]
+            layer["rawg_ratings_count"] = rawg_data.get("rawg_ratings_count")
+        if rawg_data.get("playtime_hours"):
+            layer["playtime_hours_avg"] = rawg_data["playtime_hours"]
+        if rawg_data.get("tags"):
+            layer["tags"] = rawg_data["tags"]
+        if rawg_data.get("genres_rawg"):
+            layer["genres"] = rawg_data["genres_rawg"]
+        if rawg_data.get("rawg_id"):
+            layer["rawg_id"] = rawg_data["rawg_id"]
+            layer["rawg_url"] = rawg_data["rawg_url"]
 
     return layer
 
@@ -674,20 +846,31 @@ def build_layer_discovery(similar_games: list) -> dict:
     }
 
 
-def build_layer_survival(title: str, platform: str) -> dict:
+def build_layer_survival(title: str, platform: str,
+                            rawg_data: dict | None = None) -> dict:
     """Layer IX — Survival (digital availability, patches, emulation status)"""
     gog_search = f"https://www.gog.com/games?query={requests.utils.quote(title)}"
     steam_search = f"https://store.steampowered.com/search/?term={requests.utils.quote(title)}"
     protondb_search = f"https://www.protondb.com/search?q={requests.utils.quote(title)}"
 
-    return {
+    layer = {
         "layer": "IX · SURVIVAL",
-        "gog_search": gog_search,
-        "steam_search": steam_search,
-        "protondb_search": protondb_search,
-        "note": "Digital availability not yet auto-verified. Links generated for manual check.",
         "emulation_check": "Check PCSX2 compat list for PS2, RPCS3 for PS3.",
     }
+
+    # Use verified store links from RAWG if available
+    if rawg_data and rawg_data.get("stores"):
+        layer["stores_verified"] = rawg_data["stores"]
+        layer["official_website"] = rawg_data.get("official_website")
+        layer["note"] = "Store links verified via RAWG."
+    else:
+        layer["gog_search"] = gog_search
+        layer["steam_search"] = steam_search
+        layer["note"] = "No verified store links found via RAWG. Search links generated for manual check."
+
+    layer["protondb_search"] = protondb_search
+
+    return layer
 
 
 def build_layer_verdict(title: str, platform: str, region: str,
@@ -808,10 +991,27 @@ def run_provenance(title: str, platform: str, region: str, config: dict) -> dict
     else:
         print("[VII] eBay App ID not configured — skipping live pricing")
 
+    # ── RAWG
+    rawg_data = {}
+    if config.get("rawg_api_key"):
+        rawg_platform_id = platform_info.get("rawg_id", 0)
+        print("[I/IX] Querying RAWG...")
+        rawg_game = rawg_find_game(title, rawg_platform_id, config["rawg_api_key"])
+        if rawg_game:
+            rawg_data = rawg_extract(rawg_game, rawg_platform_id)
+            mc = rawg_data.get("metacritic_score")
+            rating = rawg_data.get("rawg_rating")
+            stores = len(rawg_data.get("stores", []))
+            print(f"    ✓ Metacritic: {mc or 'n/a'} | RAWG rating: {rating or 'n/a'} | Stores: {stores}")
+        else:
+            print("    [warn] RAWG: no match found")
+    else:
+        print("[I/IX] RAWG API key not configured — skipping")
+
     # ── Assemble layers
     print("\n[provenance] Assembling layers...")
     layers = []
-    layers.append(build_layer_identity(title, platform, region, igdb_game, moby_game))
+    layers.append(build_layer_identity(title, platform, region, igdb_game, moby_game, rawg_data=rawg_data))
     layers.append(build_layer_origin(igdb_comps, igdb_game, wiki_data))
     if announcement_date:
         layers[-1]["announcement_date_proxy"] = announcement_date
@@ -821,11 +1021,11 @@ def run_provenance(title: str, platform: str, region: str, config: dict) -> dict
     layers.append(build_layer_context(title, platform, region, wiki_ib))
     layers.append(build_layer_market(title, platform, region, wiki_ib, ebay_data))
     layers.append(build_layer_discovery(igdb_similar))
-    layers.append(build_layer_survival(title, platform))
+    layers.append(build_layer_survival(title, platform, rawg_data=rawg_data))
     layers.append(build_layer_verdict(title, platform, region, layers))
 
     result = {
-        "provenance_version": "0.1.0",
+        "provenance_version": "0.2.0",
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "query": {"title": title, "platform": platform, "region": region},
         "layers": layers,
