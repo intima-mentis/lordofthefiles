@@ -1,0 +1,121 @@
+{
+  "provenance_version": "0.1.0",
+  "generated_at": "2026-03-14T13:17:16.138129+00:00",
+  "query": {
+    "title": "Trapt",
+    "platform": "PS2",
+    "region": "EUR"
+  },
+  "layers": [
+    {
+      "layer": "I · IDENTITY",
+      "title": "Trapt",
+      "platform": "PS2",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "release_date": "2005-06-30",
+      "igdb_id": 22576,
+      "igdb_url": "https://www.igdb.com/games/trapt",
+      "moby_id": 20974,
+      "moby_url": "https://www.mobygames.com/game/20974/trapt/",
+      "moby_description_excerpt": "<p>In <em>Trapt</em>, the player takes on the role of Princess Allura, horrified by the sudden murder of her father the King of Fronenburg and worse, being framed for his murder by step mother - Queen Catalina, later forced unwillingly to flee the castle with her maid Rachel.</p>\n<p>Fleeing her purs"
+    },
+    {
+      "layer": "II · ORIGIN",
+      "developers": [
+        "Tecmo"
+      ],
+      "publishers": [
+        "Take-Two Interactive",
+        "Tecmo",
+        "Sony Computer Entertainment"
+      ]
+    },
+    {
+      "layer": "III · HUMAN",
+      "director": "UNATTRIBUTED",
+      "composer": "UNATTRIBUTED",
+      "credits_found": 0,
+      "note": "Source: MobyGames API. UNATTRIBUTED = not in public record."
+    },
+    {
+      "layer": "IV · MUSIC",
+      "composer": "UNATTRIBUTED",
+      "ost_status": "check_manually",
+      "khinsider_search": "https://downloads.khinsider.com/search?search=Trapt",
+      "vgmdb_search": "https://vgmdb.net/search?q=Trapt",
+      "note": "VGMdb and khinsider require scraping — not yet automated. Search links generated."
+    },
+    {
+      "layer": "V · SCREENSHOTS",
+      "count": 13,
+      "urls": [
+        "https://cdn.mobygames.com/screenshots/3688989-trapt-playstation-2-main-screen.jpg",
+        "https://cdn.mobygames.com/screenshots/3689183-trapt-playstation-2-main-menu-select-the-type-of-game-you-want-t.jpg",
+        "https://cdn.mobygames.com/screenshots/3724708-trapt-playstation-2-trap-creation-menu-this-is-the-place-you-cre.jpg",
+        "https://cdn.mobygames.com/screenshots/3724896-trapt-playstation-2-and-here-is-were-you-equip-the-traps-you-mad.jpg",
+        "https://cdn.mobygames.com/screenshots/3725770-trapt-playstation-2-you-can-make-keys-to-unlock-other-rooms-with.jpg",
+        "https://cdn.mobygames.com/screenshots/3725995-trapt-playstation-2-when-you-finish-a-mission-you-get-the-chance.jpg",
+        "https://cdn.mobygames.com/screenshots/3725066-trapt-playstation-2-the-results-page-this-comes-up-just-after-su.jpg",
+        "https://cdn.mobygames.com/screenshots/3726182-trapt-playstation-2-characters-do-the-obligatory-introduction-of.jpg",
+        "https://cdn.mobygames.com/screenshots/3722353-trapt-playstation-2-top-of-image-enemy-health-only-a-maximum-of-.jpg",
+        "https://cdn.mobygames.com/screenshots/3731157-trapt-playstation-2-trap-setting-in-one-of-the-rooms-you-can-hav.jpg",
+        "https://cdn.mobygames.com/screenshots/3739102-trapt-playstation-2-the-yellow-thing-in-front-in-the-corner-is-a.jpg",
+        "https://cdn.mobygames.com/screenshots/3739280-trapt-playstation-2-one-of-the-many-cut-scenes-in-the-game.jpg",
+        "https://cdn.mobygames.com/screenshots/3726681-trapt-playstation-2-death-file-where-you-see-the-enemies-you-kil.jpg"
+      ],
+      "source": "MobyGames API"
+    },
+    {
+      "layer": "VI · CONTEXT",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "has_wikipedia_regional_section": false,
+      "note": "Regional censorship data not in structured DB — check Wikipedia + GameFAQs manually for cuts."
+    },
+    {
+      "layer": "VII · MARKET",
+      "units_sold": "NOT IN PUBLIC RECORD",
+      "ebay_active_listings": null,
+      "ebay_price_range": null,
+      "ebay_query": null,
+      "ebay_retrieved_at": null,
+      "note": null
+    },
+    {
+      "layer": "VIII · DISCOVERY",
+      "similar_games_igdb": [
+        "Jade Empire",
+        "Eador: Imperium",
+        "Fire Emblem: Three Houses",
+        "GreedFall",
+        "Shadows: Awakening",
+        "Eternity: The Last Unicorn",
+        "Torchlight III",
+        "Vampire: The Masquerade - Bloodlines 2"
+      ],
+      "note": "Source: IGDB similar_games field. Reflects algorithmic similarity, not editorial curation."
+    },
+    {
+      "layer": "IX · SURVIVAL",
+      "gog_search": "https://www.gog.com/games?query=Trapt",
+      "steam_search": "https://store.steampowered.com/search/?term=Trapt",
+      "protondb_search": "https://www.protondb.com/search?q=Trapt",
+      "note": "Digital availability not yet auto-verified. Links generated for manual check.",
+      "emulation_check": "Check PCSX2 compat list for PS2, RPCS3 for PS3."
+    },
+    {
+      "layer": "X · FORENSIC VERDICT",
+      "object": "Trapt — PS2 — EUR",
+      "generated_at": "2026-03-14T13:17:16.138109+00:00",
+      "completeness_notes": [
+        "Layer III: Check MobyGames credits section manually if composer shows UNATTRIBUTED",
+        "Layer IV: Verify OST status via khinsider + VGMdb links",
+        "Layer VI: Check regional differences on Wikipedia + GameFAQs manually",
+        "Layer VII: eBay data is live if API key configured, otherwise check manually",
+        "Layer IX: Digital availability requires manual GOG/Steam check"
+      ],
+      "verdict": "PENDING — review layers and add keep/sell/document decision manually"
+    }
+  ]
+}

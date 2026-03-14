@@ -1,0 +1,142 @@
+{
+  "provenance_version": "0.1.0",
+  "generated_at": "2026-03-14T14:21:03.808947+00:00",
+  "query": {
+    "title": "Halo 2",
+    "platform": "PC",
+    "region": "EUR"
+  },
+  "layers": [
+    {
+      "layer": "I · IDENTITY",
+      "title": "Halo 2",
+      "platform": "PC",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "release_date": "2004-11-09",
+      "igdb_id": 986,
+      "igdb_url": "https://www.igdb.com/games/halo-2",
+      "moby_id": 15499,
+      "moby_url": "https://www.mobygames.com/game/15499/halo-2/",
+      "moby_description_excerpt": "<p>In the sequel to <a href=\"https://www.mobygames.com/game/5368/halo-combat-evolved/\">Halo</a>, Spartan-117, better known as the Master Chief, has returned to Earth, where he is promptly needed: despite all precautions taken, the Covenant have discovered the location of humanity's homeworld and are"
+    },
+    {
+      "layer": "II · ORIGIN",
+      "developers": [
+        "Bungie"
+      ],
+      "publishers": [
+        "Microsoft Game Studios"
+      ],
+      "wiki_summary": "Halo 2 is a 2004 first-person shooter video game developed by Bungie and published by Microsoft Game Studios for the Xbox console. Halo 2 is the second installment in the Halo franchise and the sequel to 2001's critically acclaimed Halo: Combat Evolved. The game features new weapons, enemies, and vehicles, another player character, and shipped with online multiplayer via Microsoft's Xbox Live service. In Halo 2's story mode, the player assumes the roles of the human Master Chief and alien Arbite",
+      "wiki_url": "https://en.wikipedia.org/wiki/Halo_2"
+    },
+    {
+      "layer": "III · HUMAN",
+      "director": "UNATTRIBUTED",
+      "composer": "Martin O'Donnell, Michael Salvatori",
+      "designer": "Jaime Griesemer",
+      "credits_found": 0,
+      "sources": [
+        "Wikipedia infobox"
+      ],
+      "note": "Sources: Wikipedia infobox"
+    },
+    {
+      "layer": "IV · MUSIC",
+      "composer": "UNATTRIBUTED",
+      "ost_status": "check_manually",
+      "khinsider_search": "https://downloads.khinsider.com/search?search=Halo%202",
+      "vgmdb_search": "https://vgmdb.net/search?q=Halo%202",
+      "note": "VGMdb and khinsider require scraping — not yet automated. Search links generated."
+    },
+    {
+      "layer": "V · SCREENSHOTS",
+      "count": 30,
+      "urls": [
+        "https://cdn.mobygames.com/screenshots/10771963-halo-2-windows-loading-screen.jpg",
+        "https://cdn.mobygames.com/screenshots/10771921-halo-2-windows-main-menu.jpg",
+        "https://cdn.mobygames.com/screenshots/10773829-halo-2-windows-halo-1-or-what-is-left-of-it-intro.jpg",
+        "https://cdn.mobygames.com/screenshots/10771634-halo-2-windows-driving-around-in-the-warthog.jpg",
+        "https://cdn.mobygames.com/screenshots/10773859-halo-2-windows-even-the-master-chief-dies-sometimes.jpg",
+        "https://cdn.mobygames.com/screenshots/10771927-halo-2-windows-a-heavy-firefight.jpg",
+        "https://cdn.mobygames.com/screenshots/10771643-halo-2-windows-deploying-a-bridge.jpg",
+        "https://cdn.mobygames.com/screenshots/10771646-halo-2-windows-one-of-the-covenant-elders.jpg",
+        "https://cdn.mobygames.com/screenshots/10771909-halo-2-windows-your-friends-delivered-you-a-tank.jpg",
+        "https://cdn.mobygames.com/screenshots/10771912-halo-2-windows-start-of-the-next-part-of-the-level.jpg",
+        "https://cdn.mobygames.com/screenshots/10771918-halo-2-windows-yeah-fly-away-and-let-me-do-all-the-dirty-work.jpg",
+        "https://cdn.mobygames.com/screenshots/10771966-halo-2-windows-you-also-play-the-dark-guy-on-the-floor-during-so.jpg",
+        "https://cdn.mobygames.com/screenshots/10771960-halo-2-windows-as-a-covenant-on-a-city-in-the-clouds.jpg",
+        "https://cdn.mobygames.com/screenshots/10773862-halo-2-windows-preparing-an-ambush.jpg",
+        "https://cdn.mobygames.com/screenshots/10771930-halo-2-windows-turning-invisible.jpg",
+        "https://cdn.mobygames.com/screenshots/10771957-halo-2-windows-making-a-stealth-kill.jpg",
+        "https://cdn.mobygames.com/screenshots/10999314-halo-2-windows-watch-out-for-enemy-fire.jpg",
+        "https://cdn.mobygames.com/screenshots/10998206-halo-2-windows-nice-waterfall.jpg",
+        "https://cdn.mobygames.com/screenshots/10999320-halo-2-windows-looks-like-a-big-bug.jpg",
+        "https://cdn.mobygames.com/screenshots/10999326-halo-2-windows-miranda-keyes-at-close.jpg",
+        "https://cdn.mobygames.com/screenshots/10998149-halo-2-windows-nice-storm-masking-your-attack.jpg",
+        "https://cdn.mobygames.com/screenshots/10999278-halo-2-windows-enemy-hangar.jpg",
+        "https://cdn.mobygames.com/screenshots/10999317-halo-2-windows-shoot-those-bugs.jpg",
+        "https://cdn.mobygames.com/screenshots/10999284-halo-2-windows-miranda-keyes-flying-a-spaceship.jpg",
+        "https://cdn.mobygames.com/screenshots/10999287-halo-2-windows-snipers-ready-for-action.jpg",
+        "https://cdn.mobygames.com/screenshots/10999290-halo-2-windows-crashlanded.jpg",
+        "https://cdn.mobygames.com/screenshots/10999293-halo-2-windows-zooming-in-for-the-kill.jpg",
+        "https://cdn.mobygames.com/screenshots/10999509-halo-2-windows-what-a-mess.jpg",
+        "https://cdn.mobygames.com/screenshots/12448639-halo-2-windows-driving-inside-a-tunnel.jpg",
+        "https://cdn.mobygames.com/screenshots/545949-halo-2-windows-driving-a-tank-through-the-bridge.jpg"
+      ],
+      "source": "MobyGames API"
+    },
+    {
+      "layer": "VI · CONTEXT",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "has_wikipedia_regional_section": false,
+      "note": "Regional censorship data not in structured DB — check Wikipedia + GameFAQs manually for cuts."
+    },
+    {
+      "layer": "VII · MARKET",
+      "units_sold": "260,000",
+      "ebay_active_listings": null,
+      "ebay_price_range": null,
+      "ebay_query": null,
+      "ebay_retrieved_at": null,
+      "note": null
+    },
+    {
+      "layer": "VIII · DISCOVERY",
+      "similar_games_igdb": [
+        "Bulletstorm",
+        "Halo: Combat Evolved",
+        "Halo 3",
+        "Halo: Reach",
+        "Halo 4",
+        "Inversion",
+        "Destiny 2",
+        "Halo Infinite"
+      ],
+      "note": "Source: IGDB similar_games field. Reflects algorithmic similarity, not editorial curation."
+    },
+    {
+      "layer": "IX · SURVIVAL",
+      "gog_search": "https://www.gog.com/games?query=Halo%202",
+      "steam_search": "https://store.steampowered.com/search/?term=Halo%202",
+      "protondb_search": "https://www.protondb.com/search?q=Halo%202",
+      "note": "Digital availability not yet auto-verified. Links generated for manual check.",
+      "emulation_check": "Check PCSX2 compat list for PS2, RPCS3 for PS3."
+    },
+    {
+      "layer": "X · FORENSIC VERDICT",
+      "object": "Halo 2 — PC — EUR",
+      "generated_at": "2026-03-14T14:21:03.808895+00:00",
+      "completeness_notes": [
+        "Layer III: Check MobyGames credits section manually if composer shows UNATTRIBUTED",
+        "Layer IV: Verify OST status via khinsider + VGMdb links",
+        "Layer VI: Check regional differences on Wikipedia + GameFAQs manually",
+        "Layer VII: eBay data is live if API key configured, otherwise check manually",
+        "Layer IX: Digital availability requires manual GOG/Steam check"
+      ],
+      "verdict": "PENDING — review layers and add keep/sell/document decision manually"
+    }
+  ]
+}

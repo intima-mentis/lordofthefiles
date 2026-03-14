@@ -1,0 +1,112 @@
+{
+  "provenance_version": "0.1.0",
+  "generated_at": "2026-03-14T14:22:41.191651+00:00",
+  "query": {
+    "title": "Mafia",
+    "platform": "PS2",
+    "region": "EUR"
+  },
+  "layers": [
+    {
+      "layer": "I · IDENTITY",
+      "title": "Mafia",
+      "platform": "PS2",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "release_date": "2002-08-29",
+      "igdb_id": 39,
+      "igdb_url": "https://www.igdb.com/games/mafia",
+      "moby_id": 7190,
+      "moby_url": "https://www.mobygames.com/game/7190/mafia/",
+      "moby_description_excerpt": "<p>Tommy Angelo was an ordinary taxi driver trying to make a living on the streets of Lost Heaven until one day an unexpected meeting changed his life forever. Two men jump into his cab, telling him to drive as fast as he can. Bullets begin to hit the cab, and a car with armed pursuers gets closer. "
+    },
+    {
+      "layer": "II · ORIGIN",
+      "developers": [
+        "Illusion Softworks"
+      ],
+      "publishers": [
+        "Gathering of Developers",
+        "Take-Two Interactive"
+      ],
+      "wiki_summary": "\nInformally or generally, a mafia is any of various criminal organizations that include, or bear a strong similarity to, the original Sicilian Mafia, the Italian-American Mafia, or other Italian organized crime groups. The central activity of such an organization would be the arbitration of disputes between criminals, as well as the organization and enforcement of illicit agreements between criminals through violence. Mafias often engage in secondary activities such as gambling, loan sharking, d",
+      "wiki_url": "https://en.wikipedia.org/wiki/Mafia"
+    },
+    {
+      "layer": "III · HUMAN",
+      "director": "Petr Vochozka, Daniel Vávra",
+      "composer": "Vladimír Šimůnek",
+      "designer": null,
+      "credits_found": 0,
+      "sources": [
+        "Wikipedia infobox"
+      ],
+      "note": "Sources: Wikipedia infobox"
+    },
+    {
+      "layer": "IV · MUSIC",
+      "composer": "UNATTRIBUTED",
+      "ost_status": "check_manually",
+      "khinsider_search": "https://downloads.khinsider.com/search?search=Mafia",
+      "vgmdb_search": "https://vgmdb.net/search?q=Mafia",
+      "note": "VGMdb and khinsider require scraping — not yet automated. Search links generated."
+    },
+    {
+      "layer": "V · SCREENSHOTS",
+      "count": 0,
+      "urls": [],
+      "source": "MobyGames API"
+    },
+    {
+      "layer": "VI · CONTEXT",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "has_wikipedia_regional_section": false,
+      "note": "Regional censorship data not in structured DB — check Wikipedia + GameFAQs manually for cuts."
+    },
+    {
+      "layer": "VII · MARKET",
+      "units_sold": "2 million",
+      "ebay_active_listings": null,
+      "ebay_price_range": null,
+      "ebay_query": null,
+      "ebay_retrieved_at": null,
+      "note": null
+    },
+    {
+      "layer": "VIII · DISCOVERY",
+      "similar_games_igdb": [
+        "Grand Theft Auto III",
+        "Grand Theft Auto IV",
+        "Grand Theft Auto: Vice City",
+        "Grand Theft Auto: Vice City Stories",
+        "Tom Clancy's Ghost Recon: Wildlands",
+        "Borderlands 3",
+        "Watch Dogs 2",
+        "Death Stranding"
+      ],
+      "note": "Source: IGDB similar_games field. Reflects algorithmic similarity, not editorial curation."
+    },
+    {
+      "layer": "IX · SURVIVAL",
+      "gog_search": "https://www.gog.com/games?query=Mafia",
+      "steam_search": "https://store.steampowered.com/search/?term=Mafia",
+      "protondb_search": "https://www.protondb.com/search?q=Mafia",
+      "note": "Digital availability not yet auto-verified. Links generated for manual check.",
+      "emulation_check": "Check PCSX2 compat list for PS2, RPCS3 for PS3."
+    },
+    {
+      "layer": "X · FORENSIC VERDICT",
+      "object": "Mafia — PS2 — EUR",
+      "generated_at": "2026-03-14T14:22:41.191631+00:00",
+      "completeness_notes": [
+        "Layer III: Check MobyGames credits section manually if composer shows UNATTRIBUTED",
+        "Layer IV: Verify OST status via khinsider + VGMdb links",
+        "Layer VI: Check regional differences on Wikipedia + GameFAQs manually",
+        "Layer VII: eBay data is live if API key configured, otherwise check manually",
+        "Layer IX: Digital availability requires manual GOG/Steam check"
+      ],
+      "verdict": "PENDING — review layers and add keep/sell/document decision manually"
+    }
+  ]
+}

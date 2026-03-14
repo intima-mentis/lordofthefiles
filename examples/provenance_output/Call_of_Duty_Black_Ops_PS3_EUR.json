@@ -1,0 +1,165 @@
+{
+  "provenance_version": "0.1.0",
+  "generated_at": "2026-03-14T14:28:42.363839+00:00",
+  "query": {
+    "title": "Call of Duty: Black Ops",
+    "platform": "PS3",
+    "region": "EUR"
+  },
+  "layers": [
+    {
+      "layer": "I · IDENTITY",
+      "title": "Call of Duty: Black Ops",
+      "platform": "PS3",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "release_date": "2010-11-09",
+      "igdb_id": 545,
+      "igdb_url": "https://www.igdb.com/games/call-of-duty-black-ops",
+      "moby_id": 49001,
+      "moby_url": "https://www.mobygames.com/game/49001/call-of-duty-black-ops/",
+      "moby_description_excerpt": "<p><em>Call of Duty: Black Ops</em> is the seventh edition of the <em>Call of Duty</em> FPS franchise, which is set during the Cold War theater, and casts the player in the role of various special forces soldiers conducting covert top secret operations colloquially known as 'black ops' that which go"
+    },
+    {
+      "layer": "II · ORIGIN",
+      "developers": [
+        "Treyarch"
+      ],
+      "publishers": [
+        "Activision",
+        "Square Enix",
+        "Aspyr Media"
+      ],
+      "wiki_summary": "Call of Duty: Black Ops is a 2010 first-person shooter game developed by Treyarch and published by Activision. It was released worldwide in November 2010 for Microsoft Windows, the PlayStation 3, Wii, and Xbox 360, with a separate version for Nintendo DS developed by n-Space. Aspyr later ported the game to Mac OS X in September 2012. It is the seventh title in the Call of Duty series and a sequel to Call of Duty: World at War.",
+      "wiki_url": "https://en.wikipedia.org/wiki/Call_of_Duty%3A_Black_Ops",
+      "announcement_date_proxy": "2010-10-19"
+    },
+    {
+      "layer": "III · HUMAN",
+      "director": "UNATTRIBUTED",
+      "composer": "Sean Murray",
+      "designer": null,
+      "credits_found": 0,
+      "sources": [
+        "Wikipedia infobox"
+      ],
+      "note": "Sources: Wikipedia infobox"
+    },
+    {
+      "layer": "IV · MUSIC",
+      "composer": "UNATTRIBUTED",
+      "ost_status": "check_manually",
+      "khinsider_search": "https://downloads.khinsider.com/search?search=Call%20of%20Duty%3A%20Black%20Ops",
+      "vgmdb_search": "https://vgmdb.net/search?q=Call%20of%20Duty%3A%20Black%20Ops",
+      "note": "VGMdb and khinsider require scraping — not yet automated. Search links generated."
+    },
+    {
+      "layer": "V · SCREENSHOTS",
+      "count": 50,
+      "urls": [
+        "https://cdn.mobygames.com/screenshots/11689654-call-of-duty-black-ops-playstation-3-main-title.jpg",
+        "https://cdn.mobygames.com/screenshots/11689612-call-of-duty-black-ops-playstation-3-main-menu.jpg",
+        "https://cdn.mobygames.com/screenshots/11691233-call-of-duty-black-ops-playstation-3-the-game-unravels-through-t.jpg",
+        "https://cdn.mobygames.com/screenshots/11691257-call-of-duty-black-ops-playstation-3-somewhere-in-cuba-on-a-top-.jpg",
+        "https://cdn.mobygames.com/screenshots/11689624-call-of-duty-black-ops-playstation-3-local-police-and-militia-ar.jpg",
+        "https://cdn.mobygames.com/screenshots/11689627-call-of-duty-black-ops-playstation-3-there-is-no-turning-back-no.jpg",
+        "https://cdn.mobygames.com/screenshots/11689630-call-of-duty-black-ops-playstation-3-some-rifles-have-scope-that.jpg",
+        "https://cdn.mobygames.com/screenshots/11691260-call-of-duty-black-ops-playstation-3-good-thing-hes-on-your-side.jpg",
+        "https://cdn.mobygames.com/screenshots/11689633-call-of-duty-black-ops-playstation-3-with-a-help-of-an-old-veter.jpg",
+        "https://cdn.mobygames.com/screenshots/11689636-call-of-duty-black-ops-playstation-3-during-the-game-pause-you-c.jpg",
+        "https://cdn.mobygames.com/screenshots/11689618-call-of-duty-black-ops-playstation-3-arriving-at-the-pentagon.jpg",
+        "https://cdn.mobygames.com/screenshots/11691236-call-of-duty-black-ops-playstation-3-meeting-president-kennedy.jpg",
+        "https://cdn.mobygames.com/screenshots/11689615-call-of-duty-black-ops-playstation-3-letting-them-pass-not-to-gi.jpg",
+        "https://cdn.mobygames.com/screenshots/11691263-call-of-duty-black-ops-playstation-3-how-the-heck-did-the-binocu.jpg",
+        "https://cdn.mobygames.com/screenshots/958530-call-of-duty-black-ops-playstation-3-approaching-for-a-silent-ki.jpg",
+        "https://cdn.mobygames.com/screenshots/11691239-call-of-duty-black-ops-playstation-3-enemy-patrol-better-watch-y.jpg",
+        "https://cdn.mobygames.com/screenshots/958412-call-of-duty-black-ops-playstation-3-using-explosive-arrows-this.jpg",
+        "https://cdn.mobygames.com/screenshots/11689639-call-of-duty-black-ops-playstation-3-rope-diving-through-the-win.jpg",
+        "https://cdn.mobygames.com/screenshots/11689642-call-of-duty-black-ops-playstation-3-when-on-a-large-open-area-e.jpg",
+        "https://cdn.mobygames.com/screenshots/11689609-call-of-duty-black-ops-playstation-3-welcome-to-vietnam.jpg",
+        "https://cdn.mobygames.com/screenshots/11689645-call-of-duty-black-ops-playstation-3-a-jeep-ride-soon-to-go-real.jpg",
+        "https://cdn.mobygames.com/screenshots/11689648-call-of-duty-black-ops-playstation-3-fighting-in-the-trenches.jpg",
+        "https://cdn.mobygames.com/screenshots/11689651-call-of-duty-black-ops-playstation-3-protecting-the-base-camp-ag.jpg",
+        "https://cdn.mobygames.com/screenshots/11690107-call-of-duty-black-ops-playstation-3-secret-wwii-mission-to-capt.jpg",
+        "https://cdn.mobygames.com/screenshots/11689621-call-of-duty-black-ops-playstation-3-commandeering-an-assault-bo.jpg",
+        "https://cdn.mobygames.com/screenshots/11691245-call-of-duty-black-ops-playstation-3-russian-roulette-its-time-t.jpg",
+        "https://cdn.mobygames.com/screenshots/11691248-call-of-duty-black-ops-playstation-3-going-through-an-undergroun.jpg",
+        "https://cdn.mobygames.com/screenshots/11691242-call-of-duty-black-ops-playstation-3-memorize-the-controls-and-a.jpg",
+        "https://cdn.mobygames.com/screenshots/11691251-call-of-duty-black-ops-playstation-3-before-you-can-land-decimat.jpg",
+        "https://cdn.mobygames.com/screenshots/11691254-call-of-duty-black-ops-playstation-3-clearing-out-the-ship.jpg",
+        "https://cdn.mobygames.com/screenshots/12313810-call-of-duty-black-ops-playstation-3-black-ops-version-of-activi.jpg",
+        "https://cdn.mobygames.com/screenshots/12327131-call-of-duty-black-ops-playstation-3-good-vantage-point.jpg",
+        "https://cdn.mobygames.com/screenshots/12327134-call-of-duty-black-ops-playstation-3-prison-riot.jpg",
+        "https://cdn.mobygames.com/screenshots/1463010-call-of-duty-black-ops-playstation-3-shotgun-is-only-good-for-cl.jpg",
+        "https://cdn.mobygames.com/screenshots/1463353-call-of-duty-black-ops-playstation-3-mission-briefing.jpg",
+        "https://cdn.mobygames.com/screenshots/1463639-call-of-duty-black-ops-playstation-3-leaving-the-chopper-and-get.jpg",
+        "https://cdn.mobygames.com/screenshots/1463807-call-of-duty-black-ops-playstation-3-the-presidents-personal-pat.jpg",
+        "https://cdn.mobygames.com/screenshots/1464198-call-of-duty-black-ops-playstation-3-the-cia-offices.jpg",
+        "https://cdn.mobygames.com/screenshots/1464365-call-of-duty-black-ops-playstation-3-certain-cutscenes-show-mult.jpg",
+        "https://cdn.mobygames.com/screenshots/1464542-call-of-duty-black-ops-playstation-3-try-to-avoid-the-helicopter.jpg",
+        "https://cdn.mobygames.com/screenshots/12310367-call-of-duty-black-ops-playstation-3-time-to-announce-our-presen.jpg",
+        "https://cdn.mobygames.com/screenshots/1464680-call-of-duty-black-ops-playstation-3-this-one-is-leaning-dangero.jpg",
+        "https://cdn.mobygames.com/screenshots/1465000-call-of-duty-black-ops-playstation-3-firing-explosive-arrows-at-.jpg",
+        "https://cdn.mobygames.com/screenshots/1465557-call-of-duty-black-ops-playstation-3-missile-countdown-has-comme.jpg",
+        "https://cdn.mobygames.com/screenshots/1463394-call-of-duty-black-ops-playstation-3-the-situation-on-the-front-.jpg",
+        "https://cdn.mobygames.com/screenshots/1463546-call-of-duty-black-ops-playstation-3-crawling-under-the-tank.jpg",
+        "https://cdn.mobygames.com/screenshots/1464304-call-of-duty-black-ops-playstation-3-taking-out-the-german-commu.jpg",
+        "https://cdn.mobygames.com/screenshots/1466881-call-of-duty-black-ops-playstation-3-all-hands-aboard.jpg",
+        "https://cdn.mobygames.com/screenshots/1465214-call-of-duty-black-ops-playstation-3-approaching-the-enemy-from-.jpg",
+        "https://cdn.mobygames.com/screenshots/1465047-call-of-duty-black-ops-playstation-3-taking-out-enemy-helicopter.jpg"
+      ],
+      "source": "MobyGames API"
+    },
+    {
+      "layer": "VI · CONTEXT",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "has_wikipedia_regional_section": true,
+      "note": "Regional censorship data not in structured DB — check Wikipedia + GameFAQs manually for cuts."
+    },
+    {
+      "layer": "VII · MARKET",
+      "units_sold": "25 million",
+      "ebay_active_listings": null,
+      "ebay_price_range": null,
+      "ebay_query": null,
+      "ebay_retrieved_at": null,
+      "note": null
+    },
+    {
+      "layer": "VIII · DISCOVERY",
+      "similar_games_igdb": [
+        "Battlefield 3",
+        "Rogue Warrior",
+        "Call of Duty 2",
+        "Call of Duty 4: Modern Warfare",
+        "Call of Duty: Modern Warfare 3",
+        "Call of Duty: Black Ops II",
+        "Wolfenstein: The New Order",
+        "Call of Duty: Ghosts"
+      ],
+      "note": "Source: IGDB similar_games field. Reflects algorithmic similarity, not editorial curation."
+    },
+    {
+      "layer": "IX · SURVIVAL",
+      "gog_search": "https://www.gog.com/games?query=Call%20of%20Duty%3A%20Black%20Ops",
+      "steam_search": "https://store.steampowered.com/search/?term=Call%20of%20Duty%3A%20Black%20Ops",
+      "protondb_search": "https://www.protondb.com/search?q=Call%20of%20Duty%3A%20Black%20Ops",
+      "note": "Digital availability not yet auto-verified. Links generated for manual check.",
+      "emulation_check": "Check PCSX2 compat list for PS2, RPCS3 for PS3."
+    },
+    {
+      "layer": "X · FORENSIC VERDICT",
+      "object": "Call of Duty: Black Ops — PS3 — EUR",
+      "generated_at": "2026-03-14T14:28:42.363818+00:00",
+      "completeness_notes": [
+        "Layer III: Check MobyGames credits section manually if composer shows UNATTRIBUTED",
+        "Layer IV: Verify OST status via khinsider + VGMdb links",
+        "Layer VI: Check regional differences on Wikipedia + GameFAQs manually",
+        "Layer VII: eBay data is live if API key configured, otherwise check manually",
+        "Layer IX: Digital availability requires manual GOG/Steam check"
+      ],
+      "verdict": "PENDING — review layers and add keep/sell/document decision manually"
+    }
+  ]
+}

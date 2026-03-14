@@ -1,0 +1,162 @@
+{
+  "provenance_version": "0.1.0",
+  "generated_at": "2026-03-14T14:32:45.769569+00:00",
+  "query": {
+    "title": "Assassin's Creed: Brotherhood",
+    "platform": "PS3",
+    "region": "EUR"
+  },
+  "layers": [
+    {
+      "layer": "I · IDENTITY",
+      "title": "Assassin's Creed: Brotherhood",
+      "platform": "PS3",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "release_date": "2010-11-16",
+      "igdb_id": 113,
+      "igdb_url": "https://www.igdb.com/games/assassins-creed-brotherhood",
+      "moby_id": 49434,
+      "moby_url": "https://www.mobygames.com/game/49434/assassins-creed-brotherhood/",
+      "moby_description_excerpt": "<p>The modern-day Assassins, including Desmond Miles, make their escape and go into hiding from the Templars. They take refuge into modern-day Monteriggioni, which has been preserved as an historical site. There, they setup the Animus for Desmond to explore deeper into Ezio's past and discover more "
+    },
+    {
+      "layer": "II · ORIGIN",
+      "developers": [
+        "Ubisoft Montreal"
+      ],
+      "publishers": [
+        "Ubisoft Entertainment"
+      ],
+      "wiki_summary": "Assassin's Creed: Brotherhood is a 2010 action-adventure game developed by Ubisoft Montreal and published by Ubisoft. It is the third major installment in the Assassin's Creed series, and the second chapter in the \"Ezio Trilogy\", as a direct sequel to 2009's Assassin's Creed II. It was released on the PlayStation 3 and Xbox 360 in November 2010, and on Microsoft Windows in March 2011. A remastered version of Brotherhood, along with Assassins's Creed II and Assassin's Creed: Revelations, was rele",
+      "wiki_url": "https://en.wikipedia.org/wiki/Assassin's_Creed%3A_Brotherhood",
+      "announcement_date_proxy": "2010-11-09"
+    },
+    {
+      "layer": "III · HUMAN",
+      "director": "Patrick Plourde",
+      "composer": "Jesper Kyd",
+      "designer": "Steven Masters",
+      "credits_found": 0,
+      "sources": [
+        "Wikipedia infobox"
+      ],
+      "note": "Sources: Wikipedia infobox"
+    },
+    {
+      "layer": "IV · MUSIC",
+      "composer": "Jesper Kyd",
+      "ost_status": "check_manually",
+      "khinsider_search": "https://downloads.khinsider.com/search?search=Assassin%27s%20Creed%3A%20Brotherhood",
+      "vgmdb_search": "https://vgmdb.net/search?q=Assassin%27s%20Creed%3A%20Brotherhood",
+      "note": "VGMdb and khinsider require scraping — not yet automated. Search links generated."
+    },
+    {
+      "layer": "V · SCREENSHOTS",
+      "count": 49,
+      "urls": [
+        "https://cdn.mobygames.com/screenshots/11706673-assassins-creed-brotherhood-playstation-3-main-title.jpg",
+        "https://cdn.mobygames.com/screenshots/11706676-assassins-creed-brotherhood-playstation-3-main-menu.jpg",
+        "https://cdn.mobygames.com/screenshots/11713390-assassins-creed-brotherhood-playstation-3-returning-to-monterigg.jpg",
+        "https://cdn.mobygames.com/screenshots/968264-assassins-creed-brotherhood-playstation-3-when-you-meet-historic.jpg",
+        "https://cdn.mobygames.com/screenshots/11713384-assassins-creed-brotherhood-playstation-3-even-ubisoft-realized-.jpg",
+        "https://cdn.mobygames.com/screenshots/11713393-assassins-creed-brotherhood-playstation-3-ezio-is-older-now-and-.jpg",
+        "https://cdn.mobygames.com/screenshots/11713396-assassins-creed-brotherhood-playstation-3-the-town-is-under-atta.jpg",
+        "https://cdn.mobygames.com/screenshots/968589-assassins-creed-brotherhood-playstation-3-man-the-cannon-and-try.jpg",
+        "https://cdn.mobygames.com/screenshots/11713405-assassins-creed-brotherhood-playstation-3-ezio-is-helping-anyone.jpg",
+        "https://cdn.mobygames.com/screenshots/11713408-assassins-creed-brotherhood-playstation-3-new-entry-to-the-franc.jpg",
+        "https://cdn.mobygames.com/screenshots/11713411-assassins-creed-brotherhood-playstation-3-different-weapon-types.jpg",
+        "https://cdn.mobygames.com/screenshots/11713414-assassins-creed-brotherhood-playstation-3-sneaking-in-for-a-sudd.jpg",
+        "https://cdn.mobygames.com/screenshots/11713417-assassins-creed-brotherhood-playstation-3-entering-the-lair-of-r.jpg",
+        "https://cdn.mobygames.com/screenshots/11713420-assassins-creed-brotherhood-playstation-3-there-are-many-mission.jpg",
+        "https://cdn.mobygames.com/screenshots/11713423-assassins-creed-brotherhood-playstation-3-sometimes-youll-have-t.jpg",
+        "https://cdn.mobygames.com/screenshots/11713426-assassins-creed-brotherhood-playstation-3-the-screen-goes-bright.jpg",
+        "https://cdn.mobygames.com/screenshots/11713387-assassins-creed-brotherhood-playstation-3-this-time-place-of-eve.jpg",
+        "https://cdn.mobygames.com/screenshots/11706649-assassins-creed-brotherhood-playstation-3-for-stealth-attacks-at.jpg",
+        "https://cdn.mobygames.com/screenshots/11706652-assassins-creed-brotherhood-playstation-3-you-wont-be-able-to-pa.jpg",
+        "https://cdn.mobygames.com/screenshots/11706655-assassins-creed-brotherhood-playstation-3-meeting-with-michelang.jpg",
+        "https://cdn.mobygames.com/screenshots/11706658-assassins-creed-brotherhood-playstation-3-old-memories-from-vene.jpg",
+        "https://cdn.mobygames.com/screenshots/11706679-assassins-creed-brotherhood-playstation-3-assassination-from-the.jpg",
+        "https://cdn.mobygames.com/screenshots/11706667-assassins-creed-brotherhood-playstation-3-pretending-to-be-borgi.jpg",
+        "https://cdn.mobygames.com/screenshots/11706682-assassins-creed-brotherhood-playstation-3-a-ludicrously-high-lea.jpg",
+        "https://cdn.mobygames.com/screenshots/11706670-assassins-creed-brotherhood-playstation-3-double-kill-with-hidde.jpg",
+        "https://cdn.mobygames.com/screenshots/11706694-assassins-creed-brotherhood-playstation-3-silent-takedown-from-t.jpg",
+        "https://cdn.mobygames.com/screenshots/11706688-assassins-creed-brotherhood-playstation-3-only-eagles-come-this-.jpg",
+        "https://cdn.mobygames.com/screenshots/11706661-assassins-creed-brotherhood-playstation-3-use-pigeons-to-contact.jpg",
+        "https://cdn.mobygames.com/screenshots/11706685-assassins-creed-brotherhood-playstation-3-a-mini-rpg-of-leveling.jpg",
+        "https://cdn.mobygames.com/screenshots/970479-assassins-creed-brotherhood-playstation-3-send-your-assassins-on.jpg",
+        "https://cdn.mobygames.com/screenshots/11708466-assassins-creed-brotherhood-playstation-3-after-taking-out-nearb.jpg",
+        "https://cdn.mobygames.com/screenshots/11714409-assassins-creed-brotherhood-playstation-3-over-time-newer-weapon.jpg",
+        "https://cdn.mobygames.com/screenshots/970253-assassins-creed-brotherhood-playstation-3-map-of-the-area.jpg",
+        "https://cdn.mobygames.com/screenshots/12311993-assassins-creed-brotherhood-playstation-3-back-at-your-estate.jpg",
+        "https://cdn.mobygames.com/screenshots/12312050-assassins-creed-brotherhood-playstation-3-asking-for-a-help-from.jpg",
+        "https://cdn.mobygames.com/screenshots/12309282-assassins-creed-brotherhood-playstation-3-ezio-is-well-known-wom.jpg",
+        "https://cdn.mobygames.com/screenshots/12309564-assassins-creed-brotherhood-playstation-3-firing-cannons-at-the-.jpg",
+        "https://cdn.mobygames.com/screenshots/12309516-assassins-creed-brotherhood-playstation-3-rest-in-peace-final-ta.jpg",
+        "https://cdn.mobygames.com/screenshots/12309513-assassins-creed-brotherhood-playstation-3-quick-kill.jpg",
+        "https://cdn.mobygames.com/screenshots/12309285-assassins-creed-brotherhood-playstation-3-ezio-is-getting-ready-.jpg",
+        "https://cdn.mobygames.com/screenshots/12312482-assassins-creed-brotherhood-playstation-3-venezian-streets-and-c.jpg",
+        "https://cdn.mobygames.com/screenshots/12309561-assassins-creed-brotherhood-playstation-3-looking-for-a-machine-.jpg",
+        "https://cdn.mobygames.com/screenshots/12309288-assassins-creed-brotherhood-playstation-3-this-chest-must-be-val.jpg",
+        "https://cdn.mobygames.com/screenshots/12309291-assassins-creed-brotherhood-playstation-3-borgias.jpg",
+        "https://cdn.mobygames.com/screenshots/12309294-assassins-creed-brotherhood-playstation-3-ezio-versus-borgia.jpg",
+        "https://cdn.mobygames.com/screenshots/12309297-assassins-creed-brotherhood-playstation-3-horse-can-jump-across-.jpg",
+        "https://cdn.mobygames.com/screenshots/12312971-assassins-creed-brotherhood-playstation-3-using-crossbow-to-even.jpg",
+        "https://cdn.mobygames.com/screenshots/12309543-assassins-creed-brotherhood-playstation-3-hiding-in-the-haystack.jpg",
+        "https://cdn.mobygames.com/screenshots/12308891-assassins-creed-brotherhood-playstation-3-the-contracts-list.jpg"
+      ],
+      "source": "MobyGames API"
+    },
+    {
+      "layer": "VI · CONTEXT",
+      "region": "EUR",
+      "region_standard": "PAL",
+      "has_wikipedia_regional_section": false,
+      "note": "Regional censorship data not in structured DB — check Wikipedia + GameFAQs manually for cuts."
+    },
+    {
+      "layer": "VII · MARKET",
+      "units_sold": "NOT IN PUBLIC RECORD",
+      "ebay_active_listings": null,
+      "ebay_price_range": null,
+      "ebay_query": null,
+      "ebay_retrieved_at": null,
+      "note": null
+    },
+    {
+      "layer": "VIII · DISCOVERY",
+      "similar_games_igdb": [
+        "Assassin's Creed II",
+        "Assassin's Creed",
+        "Dishonored",
+        "Grand Theft Auto V",
+        "Assassin's Creed III",
+        "Assassin's Creed IV Black Flag",
+        "Wolfenstein: The New Order",
+        "Watch Dogs 2"
+      ],
+      "note": "Source: IGDB similar_games field. Reflects algorithmic similarity, not editorial curation."
+    },
+    {
+      "layer": "IX · SURVIVAL",
+      "gog_search": "https://www.gog.com/games?query=Assassin%27s%20Creed%3A%20Brotherhood",
+      "steam_search": "https://store.steampowered.com/search/?term=Assassin%27s%20Creed%3A%20Brotherhood",
+      "protondb_search": "https://www.protondb.com/search?q=Assassin%27s%20Creed%3A%20Brotherhood",
+      "note": "Digital availability not yet auto-verified. Links generated for manual check.",
+      "emulation_check": "Check PCSX2 compat list for PS2, RPCS3 for PS3."
+    },
+    {
+      "layer": "X · FORENSIC VERDICT",
+      "object": "Assassin's Creed: Brotherhood — PS3 — EUR",
+      "generated_at": "2026-03-14T14:32:45.769550+00:00",
+      "completeness_notes": [
+        "Layer III: Check MobyGames credits section manually if composer shows UNATTRIBUTED",
+        "Layer IV: Verify OST status via khinsider + VGMdb links",
+        "Layer VI: Check regional differences on Wikipedia + GameFAQs manually",
+        "Layer VII: eBay data is live if API key configured, otherwise check manually",
+        "Layer IX: Digital availability requires manual GOG/Steam check"
+      ],
+      "verdict": "PENDING — review layers and add keep/sell/document decision manually"
+    }
+  ]
+}
